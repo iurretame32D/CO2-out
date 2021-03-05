@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Bukaerako_Erronka-cache)(type Legacy)(uri ${KIPRJMOD}/Bukaerako_Erronka-cache.lib)(options "")(descr ""))
+  (lib (name Bukaerako_Erronka-rescue)(type Legacy)(uri ${KIPRJMOD}/Bukaerako_Erronka-rescue.lib)(options "")(descr ""))
+)
