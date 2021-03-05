@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name BukaerakoErronkaV1-rescue)(type Legacy)(uri ${KIPRJMOD}/BukaerakoErronkaV1-rescue.lib)(options "")(descr ""))
+)

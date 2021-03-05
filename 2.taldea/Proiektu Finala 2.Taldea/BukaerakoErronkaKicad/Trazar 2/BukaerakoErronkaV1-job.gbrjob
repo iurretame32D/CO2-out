@@ -1,0 +1,58 @@
+{
+  "Header":
+  {
+    "GenerationSoftware":
+    {
+      "Vendor":      "KiCad",
+      "Application": "Pcbnew",
+      "Version":     "(5.1.6)-1"
+    },
+    "CreationDate":  "2021-03-04T10:09:37+01:00"
+  },
+  "GeneralSpecs":
+  {
+    "ProjectId":
+    {
+      "Name": "BukaerakoErronkaV1",
+      "GUID": "42756b61-6572-4616-9b6f-4572726f6e6b",
+      "Revision": "rev?"
+    },
+    "Size":
+    {
+      "X": 83.920,
+      "Y": 74.776
+    },
+    "LayerNumber": 2,
+    "BoardThickness":  1.600
+  },
+  "DesignRules":
+  [
+    {
+      "Layers": "Outer",
+      "PadToPad":  0.800,
+      "PadToTrack":  0.800,
+      "TrackToTrack":  0.800,
+      "MinLineWidth":  1.000
+    }
+  ],
+  "FilesAttributes":
+  [
+    {
+      "Path":  "BukaerakoErronkaV1-B_Cu.gbr",
+      "FileFunction":  "Copper,L2,Bot",
+      "FilePolarity":  "Positive"
+    },
+    {
+      "Path":  "BukaerakoErronkaV1-Edge_Cuts.gbr",
+      "FileFunction":  "Profile",
+      "FilePolarity":  "Positive"
+    }
+  ],
+  "MaterialStackup":
+  [
+    {
+      "Type":  "Copper",
+      "Notes":  "Layer B.Cu"
+    }
+  ]
+}
