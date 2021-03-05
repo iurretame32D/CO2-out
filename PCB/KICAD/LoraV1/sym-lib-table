@@ -1,3 +1,0 @@
-(sym_lib_table
-  (lib (name LoraV1-rescue)(type Legacy)(uri ${KIPRJMOD}/LoraV1-rescue.lib)(options "")(descr ""))
-)
