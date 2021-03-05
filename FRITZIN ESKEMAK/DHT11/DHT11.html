@@ -1,0 +1,48 @@
+<pre>
+<font color="#00979c">void</font> <font color="#000000">DHT11sentsoreasetup</font> <font color="#000000">(</font><font color="#00979c">void</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;DHTxx test!&#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">dht</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+<font color="#95a5a6">&#47;* Funtzioa: void DHT11sentsorealoop (void)</font>
+<font color="#95a5a6"> * Zeregina: funtzio honek tenperatura eta hezetasuna irakurtzen du</font>
+<font color="#95a5a6"> * Erabilitako liburutegiak: - DHT sentsoreen liburutegia: </font><u><font color="#95a5a6">https:&#47;&#47;github.com&#47;adafruit&#47;DHT-sensor-library</font></u><font color="#95a5a6"></font>
+<font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Adafruit Unified sensor Lib: </font><u><font color="#95a5a6">https:&#47;&#47;github.com&#47;adafruit&#47;Adafruit</font></u><font color="#95a5a6"> sensor</font>
+<font color="#95a5a6"> * Liburutegia nondik hartuta: Arduino bertatik</font>
+<font color="#95a5a6"> * Bueltatzen duena: ezer</font>
+<font color="#95a5a6"> * Sartutako parametroak: ezer</font>
+<font color="#95a5a6"> * &nbsp;*&#47;</font>
+<font color="#00979c">void</font> <font color="#000000">DHT11sentsorealoop</font> <font color="#000000">(</font><font color="#00979c">void</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; Itxaron neurketa egin baino lehen</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">2000</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;
+ &nbsp;<font color="#00979c">float</font> <font color="#000000">h</font> <font color="#434f54">=</font> <font color="#000000">dht</font><font color="#434f54">.</font><font color="#000000">readHumidity</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#434f54">&#47;&#47; Irakurri tenperatura Celsius</font>
+ &nbsp;<font color="#00979c">float</font> <font color="#000000">t</font> <font color="#434f54">=</font> <font color="#000000">dht</font><font color="#434f54">.</font><font color="#d35400">readTemperature</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#434f54">&#47;&#47; Irakurri tenperatura Fahrenheit (isFahrenheit = true)</font>
+ &nbsp;<font color="#00979c">float</font> <font color="#000000">f</font> <font color="#434f54">=</font> <font color="#000000">dht</font><font color="#434f54">.</font><font color="#d35400">readTemperature</font><font color="#000000">(</font><font color="#00979c">true</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#434f54">&#47;&#47; Egiaztatu irakurketaren batek huts egin duen eta goiz atera (berriro saiatzeko).</font>
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#d35400">isnan</font><font color="#000000">(</font><font color="#000000">h</font><font color="#000000">)</font> <font color="#434f54">||</font> <font color="#d35400">isnan</font><font color="#000000">(</font><font color="#000000">t</font><font color="#000000">)</font> <font color="#434f54">||</font> <font color="#d35400">isnan</font><font color="#000000">(</font><font color="#000000">f</font><font color="#000000">)</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;Ezin izan da DHT sentsoretik irakurri!&#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#434f54">&#47;&#47; Kalkulatu bero-indizea Fahrenheiten (balio lehenetsia)</font>
+ &nbsp;<font color="#00979c">float</font> <font color="#000000">hif</font> <font color="#434f54">=</font> <font color="#000000">dht</font><font color="#434f54">.</font><font color="#000000">computeHeatIndex</font><font color="#000000">(</font><font color="#000000">f</font><font color="#434f54">,</font> <font color="#000000">h</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#434f54">&#47;&#47; Kalkulatu bero-indizea Celsius (isFahreheit = false)</font>
+ &nbsp;<font color="#00979c">float</font> <font color="#000000">hic</font> <font color="#434f54">=</font> <font color="#000000">dht</font><font color="#434f54">.</font><font color="#000000">computeHeatIndex</font><font color="#000000">(</font><font color="#000000">t</font><font color="#434f54">,</font> <font color="#000000">h</font><font color="#434f54">,</font> <font color="#00979c">false</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;Hezetasuna: &#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">h</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;% &nbsp;Tenperatura: &#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">t</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;°C &#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">f</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;°F &nbsp;Sentzasio termikoa: &#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">hic</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;°C &#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">hif</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;°F&#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+</pre>
