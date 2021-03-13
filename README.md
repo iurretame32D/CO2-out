@@ -5,13 +5,13 @@ Iurreta Electronic Vocational Training student project: measurement of CO2, humi
 
 ## The Things Network gateway
 
-<img src="./mapa.png" style="max-width:100%;width:auto;height:auto; align:middle">
+<img src="./mapa.png"  style="max-width:100%;width:auto;height:auto;" ALIGN=MIDDLE>
 
 
 ## Bloke Diagrama / Block diagram 
 
-<img src="./eskema.png" width="100" height="100">
+<img src="./eskema.png" style="max-width:100%;width:auto;height:auto;" ALIGN=MIDDLE>
 
 ## Emaitzak / Result
-<img src="./plaka.jpeg" width="100" height="100">
-<img src="./plakaNode.jpeg" width="100" height="100">
+<img src="./plaka.jpeg" width="100" height="100" ALIGN=LEFT style="max-width:100%;width:auto;height:auto;">
+<img src="./plakaNode.jpeg" width="100" height="100" ALIGN=RIGHT style="max-width:100%;width:auto;height:auto;" >
