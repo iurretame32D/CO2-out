@@ -6,6 +6,6 @@ Iurreta LHI ikastetxeko Mantentze-lan elektronikoa heziketa zikloko ikasleek pro
 <img src="./mapa.png">
 
 
-# Irudia
+## Irudia
 
 <img src="./eskema.png">
