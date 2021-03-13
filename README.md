@@ -1,5 +1,9 @@
 # CO2-out
-Iurreta LHI ikastetxeko elektronikako ikasleek proiektu moduluan egindako lana: C02, hezetasuna eta tenperatura neurtu eta lora bitarez ttn batera bidali.
+Iurreta LHI ikastetxeko Mantentze-lan elektronikoa heziketa zikloko ikasleek proiektu moduluan egindako lana: CO2, hezetasuna eta tenperatura neurtu eta Lora bitarez ttn batera bidali.
+
+## The Things Network gateway
+
+<img src="./mapa.png">
 
 
 # Irudia
